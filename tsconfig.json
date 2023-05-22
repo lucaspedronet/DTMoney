@@ -1,3 +1,6 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "types": ["react-native", "styled-components-react-native"], // add o styled-components... para resolver o type
+  },
 }
