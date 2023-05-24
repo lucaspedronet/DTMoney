@@ -4,13 +4,13 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   flex: 1;
 
-  background-color: #fff;
+  background-color: #E5E5E5;
 `;
 
 export const StatusBar = styled.StatusBar``;
 
 export const HeaderBackground = styled.View`
-  flex: 0.2;
+  flex: 0.3;
   width: 100%;
 
   padding-top: ${Platform.OS === 'android' ? 32 : 62}px;
@@ -65,3 +65,5 @@ export const Label = styled.Text`
   line-height: 22px;
   text-align: left;
 `;
+
+export const ListBalance = styled.ScrollView``;
