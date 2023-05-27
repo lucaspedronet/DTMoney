@@ -4,14 +4,15 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   flex: 1;
 
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
 `;
 
 export const StatusBar = styled.StatusBar``;
 
 export const HeaderBackground = styled.View`
-  flex: 0.3;
   width: 100%;
+  min-height: 230px;
+  max-height: 250px;
 
   padding-top: ${Platform.OS === 'android' ? 32 : 62}px;
 
@@ -65,5 +66,38 @@ export const Label = styled.Text`
   line-height: 22px;
   text-align: left;
 `;
+export const ContainerListHorizontal = styled.View`
+  width: 100%;
+  height: 210px;
+
+  margin-top: -100px;
+  /* padding-bottom: 10px; */
+  background-color: transparent;
+`;
 
 export const ListBalance = styled.ScrollView``;
+
+export const TitleList = styled.Text`
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #363f5f;
+`;
+
+export const HeaderTransactionList = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding-top: 32px;
+  padding-bottom: 16px;
+`;
+
+export const AmountTransaction = styled.Text`
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: #969cb2;
+`;

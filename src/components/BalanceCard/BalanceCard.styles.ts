@@ -11,6 +11,8 @@ export const Container = styled.View<Pick<BalanceCardProps, 'title'>>`
 
   padding: 18px 23px;
 
+  elevation: 5;
+
   border-radius: 5px;
   background-color: ${props => (props.title !== 'Total' ? '#fff' : '#33CC95')};
 `;

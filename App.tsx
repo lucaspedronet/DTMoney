@@ -1,5 +1,5 @@
-import {Home} from './src/Home';
+import {HomeScreen} from './src/screens/HomeScreen';
 
 export function App() {
-  return <Home />;
+  return <HomeScreen />;
 }
