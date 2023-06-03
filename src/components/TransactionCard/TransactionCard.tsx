@@ -2,7 +2,7 @@ import * as S from './TransactionCard.styles';
 
 export type Transaction = {
   type: 'Entrada' | 'Saída';
-  title: string;
+  name: string;
   value: number;
   date: string;
   category: 'Vendas' | 'Alimentação' | 'Casa';
@@ -13,11 +13,11 @@ type TransactionCardProps = {
 };
 
 export function TransactionCard({transaction}: TransactionCardProps) {
-  const {title, value, date, category, type} = transaction;
+  const {name, value, date, category, type} = transaction;
 
   return (
     <S.Container>
-      <S.Title>{title}</S.Title>
+      <S.Title>{name}</S.Title>
       <S.Value type={type}>
         {type === 'Saída' && '- '}R$ {value}
       </S.Value>

@@ -23,10 +23,18 @@ const icons = {
 
 interface ModalNewTransactionProps extends ModalProps {
   onClose: () => void;
+  setName: (name: string) => void;
+  setPrice: (price: string) => void;
+  setCategory: (category: string) => void;
+  onSubmite: () => void;
 }
 
 export function ModalNewTransaction({
   onClose,
+  setName,
+  setPrice,
+  setCategory,
+  onSubmite,
   ...rest
 }: ModalNewTransactionProps) {
   return (
@@ -39,9 +47,13 @@ export function ModalNewTransaction({
               <ModalButtonCloseLabel>x</ModalButtonCloseLabel>
             </ModalButtonClose>
           </ModalHeader>
-          <ModalInput placeholder="Nome" />
+          <ModalInput placeholder="Nome" onChangeText={setName} />
 
-          <ModalInput placeholder="Preço" />
+          <ModalInput
+            placeholder="Preço"
+            onChangeText={setPrice}
+            keyboardType="numeric"
+          />
 
           <ModalContainerCategory>
             <ModalCategory>
@@ -55,10 +67,12 @@ export function ModalNewTransaction({
             </ModalCategory>
           </ModalContainerCategory>
 
-          <ModalInput placeholder="Categoria" />
+          <ModalInput placeholder="Categoria" onChangeText={setCategory} />
 
-          <ModalButtonNewTransaction>
-            <ModalButtonNewTransactionLabel>Cadastrar</ModalButtonNewTransactionLabel>
+          <ModalButtonNewTransaction onPress={() => onSubmite()}>
+            <ModalButtonNewTransactionLabel>
+              Cadastrar
+            </ModalButtonNewTransactionLabel>
           </ModalButtonNewTransaction>
         </ModalContainer>
       </BackgroundOverlay>
