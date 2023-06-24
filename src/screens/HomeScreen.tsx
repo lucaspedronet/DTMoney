@@ -1,4 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
+import {useEffect, useState} from 'react';
 import {FlatList} from 'react-native';
 import {BalanceCard} from '../components/BalanceCard/BalanceCard';
 import {
@@ -23,7 +24,7 @@ import {
   AmountTransaction,
 } from './HomeScreen.styles';
 import {ModalNewTransaction} from '../components/ModalNewTransaction/ModalNewTransaction';
-import {useEffect, useState} from 'react';
+import {useAuth} from '../context/AuthProvider';
 
 const icon = require('../assets/icon-logo.png');
 
@@ -92,6 +93,7 @@ export function HomeScreen() {
     'Casa',
   );
   const [type, setType] = useState<'Entrada' | 'Saída'>('Entrada');
+  const {auth, signInDTMoney} = useAuth();
 
   useEffect(() => setTransaction(dataTransaction), []);
 
@@ -149,9 +151,15 @@ export function HomeScreen() {
     );
   }
 
-  useEffect(() => console.log({name}), [name]);
-  useEffect(() => console.log({category}), [category]);
-  useEffect(() => console.log({price}), [price]);
+  useEffect(() => {
+    console.log({auth});
+    (async () =>
+      signInDTMoney({
+        username: 'develop19.partner_br@solistica.com',
+        password: 'Solistica.2022',
+      }))();
+  }, [auth, signInDTMoney]);
+
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor="#5429CC" />
@@ -185,7 +193,7 @@ export function HomeScreen() {
               paddingHorizontal: 25,
               gap: 16,
             }}>
-            <BalanceCard
+            {/* <BalanceCard
               title="Entradas"
               value={onTotalSumOfRevenue().toString()}
               description="Última entrada dia 13 de abril"
@@ -199,7 +207,7 @@ export function HomeScreen() {
               title="Total"
               value={String(onTotalBalance())}
               description="Última entrada dia 13 de abril"
-            />
+            /> */}
           </ListBalance>
         </ContainerListHorizontal>
 

@@ -1,7 +1,12 @@
+import {AuthProvider} from './src/context/AuthProvider';
 import {HomeScreen} from './src/screens/HomeScreen';
 
 export function App() {
-  return <HomeScreen />;
+  return (
+    <AuthProvider>
+      <HomeScreen />
+    </AuthProvider>
+  );
 }
 
 // TUDO DTMoney

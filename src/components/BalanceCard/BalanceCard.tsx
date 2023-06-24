@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {useTransaction} from '../../context/Transaction';
 import * as S from './BalanceCard.styles';
 
 const icons = {
@@ -15,6 +16,10 @@ export type BalanceCardProps = {
 };
 
 export function BalanceCard({title, value, description}: BalanceCardProps) {
+  const {transaction, setTransaction} = useTransaction();
+
+  console.log({transaction: transaction[4]});
+
   return (
     <S.Container title={title}>
       <S.HeaderContainer>
